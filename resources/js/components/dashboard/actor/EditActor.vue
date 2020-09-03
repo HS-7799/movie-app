@@ -73,6 +73,10 @@ export default {
             {
                 window.location = '/login'
             }
+            if(err.response.status === 404)
+            {
+                this.$router.push({name : 'Not found'})
+            }
             if(err.response.status === 403)
             {
                 this.$emit('actionUnauthorized',true)

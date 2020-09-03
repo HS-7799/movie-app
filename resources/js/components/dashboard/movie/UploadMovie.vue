@@ -67,12 +67,14 @@ export default {
         },
         handle(err)
         {
-            console.log(err.response.data)
-
 
             if(err.response.status === 401)
             {
                 window.location = '/login'
+            }
+            if(err.response.status === 404)
+            {
+                this.$router.push({name : 'Not found'})
             }
             if(err.response.status === 403)
             {

@@ -70,7 +70,6 @@ export default {
         },
         handle(err)
         {
-            console.log(err);
             if(err.response.data.errors)
             {
                 this.errors = err.response.data.errors
@@ -82,6 +81,10 @@ export default {
             if(err.response.status === 403)
             {
                 this.$emit('actionUnauthorized',true)
+            }
+            if(err.response.status === 404)
+            {
+                this.$router.push({name : 'Not found'})
             }
         },
     },

@@ -59,6 +59,10 @@ export default {
             {
                 this.$emit('actionUnauthorized',true)
             }
+            if(err.response.status === 404)
+            {
+                this.$router.push({name : 'Not found'})
+            }
         },
         submitForm()
         {
@@ -70,7 +74,6 @@ export default {
                 }
                 this.$router.push('/dashboard/users');
             }).catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             });
         },
@@ -80,7 +83,6 @@ export default {
             .then((res) => {
                 this.roles = res.data
             }).catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             });
         }
@@ -98,7 +100,6 @@ export default {
                     return role.id
                 })
             }).catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             });
 

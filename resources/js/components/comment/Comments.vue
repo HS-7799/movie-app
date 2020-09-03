@@ -1,5 +1,5 @@
 <template>
-    <div class="col-lg-10 col-12 bg-white">
+    <div class="col-12 bg-white">
 
         <app-add-comment @newComment="addComment($event)" :movieId="movieId" ></app-add-comment>
         <div class="rounded " v-for="(comment,index) in comments.data" :key="comment.id" >

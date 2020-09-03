@@ -128,6 +128,10 @@ export default {
             {
                 this.$emit('actionUnauthorized',true)
             }
+            if(err.response.status === 404)
+            {
+                this.$router.push({name : 'Not found'})
+            }
         },
         addCategory()
         {
@@ -138,7 +142,6 @@ export default {
                 this.errors = {}
                 this.form.name = null
             }).catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             });
         },
@@ -155,7 +158,6 @@ export default {
                  this.loadPage(this.current_page)
 
             }).catch((err) => {
-                console.log(err.response)
                 this.handle(err)
             });
 
@@ -170,7 +172,6 @@ export default {
                 this.cancelEditing();
                 this.errors = {}
             }).catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             });
 
@@ -209,7 +210,6 @@ export default {
                 this.total = res.data.meta.last_page
                 this.categories = res.data.data
             }).catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             });
         },

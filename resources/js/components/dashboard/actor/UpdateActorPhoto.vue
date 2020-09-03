@@ -47,6 +47,10 @@ export default {
                 {
                     alert('action Unauthorized');
                 }
+                if(err.response.status === 404)
+                {
+                    this.$router.push({name : 'Not found'})
+                }
             });
         }
     }

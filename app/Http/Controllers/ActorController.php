@@ -25,8 +25,17 @@ class ActorController extends Controller
     {
         if(request()->wantsJson())
         {
-            return Actor::latest()->paginate(10);
+            if(request('page'))
+            {
+                return Actor::latest()->paginate(10);
+            }
+
+            return Actor::all();
         }
+
+        return view('actors.index',[
+            'actors' => Actor::latest()->paginate(18)
+        ]);
     }
 
 
@@ -60,7 +69,13 @@ class ActorController extends Controller
      */
     public function show(Actor $actor)
     {
-        return $actor;
+
+        if(request()->wantsJson())
+        {
+            return $actor;
+        }
+
+        return view('actors.show',compact('actor'));
     }
 
     /**

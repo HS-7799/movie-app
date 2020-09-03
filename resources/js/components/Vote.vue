@@ -1,11 +1,11 @@
 <template>
     <div>
         <span class="vote mx-1" @click="vote('up')" >
-            <i class="fas fa-thumbs-up icon" :class="{'text-primary' : isLiked}" ></i>
+            <i class="fas fa-thumbs-up icon" :class="{'active' : isLiked}" ></i>
             <span class="voteCount" > {{ likeCount }} </span>
         </span>
         <span class="vote mx-1" @click="vote('down')" >
-            <i class="fas fa-thumbs-down icon" :class="{'text-primary' : isUnLiked}" ></i>
+            <i class="fas fa-thumbs-down icon" :class="{'active' : isUnLiked}" ></i>
             <span class="voteCount" > {{ unlikeCount }} </span>
         </span>
     </div>
@@ -66,7 +66,7 @@ export default {
                     this.unlikeCount--;
                 }
             }).catch((err) => {
-                console.log(err.response.data);
+                this.handle(err)
             });
         },
         createOrUpdateVote(type)
@@ -125,6 +125,10 @@ export default {
                 }
             })
             }
+            if(err.response.status === 404)
+            {
+                this.$router.push({name : 'Not found'})
+            }
         }
     },
     created()
@@ -160,7 +164,7 @@ export default {
 .icon
 {
     font-size : 20px;
-    color : gray
+    color : white
 }
 .vote
 {
@@ -170,12 +174,18 @@ export default {
 .voteCount
 {
     font-size : 16px;
+    color : white;
     padding : 2px
 }
 
 .icon:hover
 {
-    transform : scale(1.5)
+    transform : scale(1.2)
+}
+
+.active
+{
+    color : #4bb8ce
 }
 
 </style>

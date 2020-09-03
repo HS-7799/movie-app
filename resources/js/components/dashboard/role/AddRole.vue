@@ -84,6 +84,10 @@ export default {
             {
                 this.$emit('actionUnauthorized',true)
             }
+            if(err.response.status === 404)
+            {
+                this.$router.push({name : 'Not found'})
+            }
         },
         submitForm()
         {

@@ -39,5 +39,10 @@ class Actor extends Model implements HasMedia
     {
         return 'slug';
     }
+
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class);
+    }
 }
 

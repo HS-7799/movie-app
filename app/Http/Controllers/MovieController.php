@@ -32,8 +32,9 @@ class MovieController extends Controller
         }
 
         return view('movies.index',[
-            'movies' => Movie::orderBy('release_year','desc')->paginate(10)
+            'movies' => Movie::orderBy('release_year','desc')->where('percentage','=','100')->paginate(20),
         ]);
+
     }
 
 

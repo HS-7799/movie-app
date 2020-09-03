@@ -14,7 +14,7 @@ class Movie extends Model implements HasMedia
 
     use InteractsWithMedia;
 
-    protected $guarded = [],$with=['categories'];
+    protected $guarded = [],$with=['categories','actors'];
 
 
 
@@ -22,6 +22,11 @@ class Movie extends Model implements HasMedia
     {
         return $this->belongsToMany(Category::class)->withTimestamps();
 
+    }
+
+    public function actors()
+    {
+        return $this->belongsToMany(Actor::class)->withPivot('role')->withTimestamps();
     }
 
     public function votes()

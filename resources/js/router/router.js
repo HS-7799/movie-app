@@ -13,6 +13,7 @@ import EditRole from '../components/dashboard/role/EditRole.vue'
 import Movies from '../components/dashboard/movie/Movies.vue'
 import UploadMovie from '../components/dashboard/movie/UploadMovie.vue'
 import EditMovie from '../components/dashboard/movie/EditMovie.vue'
+import EditCast from '../components/dashboard/movie/EditCast.vue'
 import Users from '../components/dashboard/user/Users.vue'
 import AddUser from '../components/dashboard/user/AddUser.vue'
 import EditUser from '../components/dashboard/user/EditUser.vue'
@@ -30,6 +31,7 @@ const routes = [
     { path: '/dashboard/movies', component: Movies, name : 'Movies' },
     { path: '/dashboard/movies/upload', component: UploadMovie, name : 'Upload Movie' },
     { path: '/dashboard/movies/:id/edit', component: EditMovie, name : 'Edit Movie' },
+    { path: '/dashboard/movies/:id/edit/cast', component: EditCast, name : 'Edit Cast' },
     { path: '/dashboard/users', component: Users, name : 'Users' },
     { path: '/dashboard/users/create', component: AddUser, name : 'Create user' },
     { path: '/dashboard/users/:id/edit', component: EditUser, name : 'Edit user' },

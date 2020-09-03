@@ -32,12 +32,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a href="{{ Route('actors.index') }}" class="nav-link">
+                                Actors
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown px-5">
+                        {{-- <li class="nav-item dropdown px-5">
                             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
                               Categories
                             </a>
@@ -48,7 +52,7 @@
                                     </a>
                                 @endforeach
                             </div>
-                          </li>
+                          </li> --}}
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">

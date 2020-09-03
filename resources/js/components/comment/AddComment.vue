@@ -54,6 +54,10 @@ export default {
             {
                 this.errors = err.response.data.errors
             }
+            if(err.response.status === 404)
+            {
+                this.$router.push({name : 'Not found'})
+            }
             if(err.response.status === 401)
             {
                     this.$swal.fire({

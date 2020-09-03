@@ -4,10 +4,18 @@
             <div class="float-right">
               <button class="btn btn-primary" @click="$router.push({ name : 'Movies' })" >Back</button>
             </div>
+            <div>
+              <button class="btn btn-primary" @click="$router.push({ name : 'Edit Cast',params : {id : $route.params.id} })" >
+                  Edit cast
+              </button>
+            </div>
         </div>
       <div class="col-12" >
-          <form @submit.prevent="submitForm" >
-              <app-update-poster v-if="poster !== 'not yet'" :poster="poster" ></app-update-poster>
+          <form @submit.prevent="submitForm" class="row" >
+              <div class="col-lg-3 col-12 mx-auto">
+                  <app-update-poster v-if="poster !== 'not yet'" :poster="poster" ></app-update-poster>
+              </div>
+                <div class="col-lg-9 col-12">
                 <div class="form-group">
                     <label for="title">Title</label>
                     <input id="title" class="form-control" v-model="form.title" type="text">
@@ -62,6 +70,7 @@
                 <button type="submit" class="btn btn-primary" >
                     Update
                 </button>
+                </div>
 
 
           </form>
@@ -97,7 +106,6 @@ export default {
                 this.$router.push({name : 'Movies'})
             })
             .catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             })
         },
@@ -110,6 +118,10 @@ export default {
             if(err.response.status === 401)
             {
                 window.location = '/login'
+            }
+            if(err.response.status === 404)
+            {
+                this.$router.push({name : 'Not found'})
             }
             if(err.response.status === 403)
             {
@@ -138,7 +150,6 @@ export default {
                 })
             })
             .catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             })
 
@@ -147,7 +158,6 @@ export default {
                 this.categories = res.data.data
 
             }).catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             });
         }

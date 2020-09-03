@@ -5,6 +5,7 @@
  */
 
 require('./bootstrap');
+require('./jquery.magnific-popup.min');
 
 
 window.Vue = require('vue');
@@ -60,3 +61,20 @@ const app = new Vue({
     store,
     vuetify,
 });
+
+
+
+$('.popup-youtube').magnificPopup({type:'iframe'});
+	//iframe scripts
+	$.extend(true, $.magnificPopup.defaults, {
+		iframe: {
+			patterns: {
+				//youtube videos
+				youtube: {
+					index: 'youtube.com/',
+					id: 'v=',
+					src: 'https://www.youtube.com/embed/%id%?autoplay=1'
+				}
+			}
+		}
+	});

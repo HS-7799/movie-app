@@ -45,6 +45,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/movies/{entityId}/vote','VoteController@store');
     Route::delete('/movies/{entityId}/vote','VoteController@destroy');
 
+    Route::post('/movies/{movie}/cast/{actor}','ActorMovieController@store');
+
 });
 
 
@@ -57,6 +59,3 @@ Route::get('/abilities','AbilityController@index');
 Route::post('/abilities','AbilityController@store');
 Route::get('/','MovieController@index')->name('home');
 Route::put('/movies/{movie}/views','MovieController@updateViews');
-
-
-
