@@ -26,6 +26,10 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
         "admin-lte": "^3.0.5",
+        "laravel-echo": "^1.8.1",
+        "pusher-js": "^7.0.0",
+        "vue-avatar": "^2.3.0",
+        "vue-numeral-filter": "^2.0.0",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.3.4",
         "vue-sliding-pagination": "^1.1.0",

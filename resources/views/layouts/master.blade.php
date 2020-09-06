@@ -39,20 +39,25 @@
 						<!-- Links -->
 							<ul class="navbar-nav ml-auto">
 								<li class="nav-item">
-									<a href="{{ Route('actors.index') }}"  class="nav-link links">
+									<a href="{{ Route('actors.index') }}"  class="nav-link {{ Request::path() === 'actors' ? 'active' : '' }} links">
 										Actors
 									</a>
                                 </li>
                                 @guest
                                     <li class="nav-item">
-                                        <a class="nav-link links" href="{{ route('login') }}">Login</a>
+                                        <a class="nav-link {{ Request::path() === 'login' ? 'active' : '' }} links" href="{{ route('login') }}">Login</a>
                                     </li>
                                     @if (Route::has('register'))
                                         <li class="nav-item">
-                                            <a class="nav-link links" href="{{ route('register') }}">Register</a>
+                                            <a class="nav-link {{ Request::path() === 'register' ? 'active' : '' }} links" href="{{ route('register') }}">Register</a>
                                         </li>
                                     @endif
                                 @else
+                                    <li class="nav-item">
+                                        <a class="nav-link {{ Request::path() === 'favourites' ? 'active' : '' }} links" href="/favourites">
+                                            My favourites
+                                        </a>
+                                    </li>
                                     <li class="nav-item dropdown">
                                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -60,13 +65,19 @@
 
                                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                             @can('see_dashboard')
-                                            <a class="dropdown-item" href="/dashboard/home">
-                                                dashboard
-                                            </a>
+                                                <a class="dropdown-item" href="/dashboard/home">
+                                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                                    dashboard
+                                                </a>
                                             @endcan
+                                            <a class="dropdown-item" href="{{ route('profiles.edit',auth()->id()) }}">
+                                                <i class="nav-icon fas fa-user"></i>
+                                                Profile
+                                            </a>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
                                                              document.getElementById('logout-form').submit();">
+                                                <i class="nav-icon fas fa-sign-out-alt"></i>
                                                 {{ __('Logout') }}
                                             </a>
 
@@ -89,7 +100,15 @@
 
 			<section id="section1">
 				@yield('content')
-			</section>
+            </section>
+            {{-- <footer>
+                <!-- To the right -->
+                <span class="float-right d-none d-sm-inline">
+                <h4>HSmovies</h4>
+                </span>
+                <!-- Default to the left -->
+                <strong>Copyright &copy; {{ date('Y') }}</strong> All rights reserved.
+            </footer> --}}
 		</div>
     <script>
 

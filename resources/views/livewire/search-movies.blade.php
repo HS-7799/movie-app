@@ -1,7 +1,9 @@
 
 <div id="header-search">
     <input type="text" placeholder="Search movies ..." wire:model="query" wire:keydown.tab="reset" id="search-input">
-
+    @if (!empty($query))
+        <button wire:click="reset" id="search-input-button" class="btn" >x</button>
+    @endif
     <span id="search-input-icon" >
         <i class='fas fa-search'></i>
     </span>

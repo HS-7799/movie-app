@@ -6,6 +6,11 @@
             </span>
         </div>
         <h5 class="m-0">
+            <avatar 
+                :username="comment.userName"
+                :customStyle="{display:'inline-block'}"
+                :size="30" >
+            </avatar>
             <strong>
                 {{ comment.userName }}
             </strong>
@@ -56,7 +61,10 @@ export default {
         {
             axios.delete(`/comments/${commentId}`)
             .then((res) => {
-                this.$emit('commentDeleted')
+                if(confirm('Are you sure ? '))
+                {
+                    this.$emit('commentDeleted')
+                }
             }).catch((err) => {
                 this.handle(err)
             });
@@ -96,7 +104,7 @@ export default {
     },
     components : {
         appReplies : Replies,
-        appAddComment : AddComment
+        appAddComment : AddComment,
 
     }
 
@@ -108,4 +116,5 @@ export default {
 {
     margin-left : 10%
 }
+
 </style>

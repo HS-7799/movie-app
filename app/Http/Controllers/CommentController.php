@@ -23,7 +23,14 @@ class CommentController extends Controller
      */
     public function index(Movie $movie)
     {
-        return $movie->comments()->paginate(3);
+        if(request()->wantsJson())
+        {
+            return $movie->comments()->paginate(3);
+        }
+        else
+        {
+            return redirect()->to('/');
+        }
     }
 
     public function show(Comment $comment)
@@ -40,11 +47,13 @@ class CommentController extends Controller
      */
     public function store(AddCommentRequest $request,Movie $movie)
     {
-        return $movie->comments()->create([
+        $comment =  $movie->comments()->create([
             'user_id' => auth()->id(),
             'body' => request('body'),
             'comment_id' => request('comment_id')
         ])->fresh();
+
+        return $comment;
     }
 
 

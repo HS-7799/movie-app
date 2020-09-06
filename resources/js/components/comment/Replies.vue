@@ -6,6 +6,7 @@
         </div>
         <div class="rounded " v-for="(reply,index) in replies.data" :key="reply.id" >
             <h5 class="m-0">
+                <avatar :username="reply.userName" :customStyle="{display:'inline-block'}" :size="30" ></avatar>
                 <strong>
                     {{ reply.userName }}
                 </strong>

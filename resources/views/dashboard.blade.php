@@ -146,15 +146,6 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/dashboard/profile" class="nav-link" active-class="active">
-                        <i class="nav-icon fas fa-user"></i>
-                        <p>
-                            Profile
-                        </p>
-                        </router-link>
-
-                    </li>
-                    <li class="nav-item">
                         <a
                             href="{{ route('logout') }}"
                             class="nav-link"

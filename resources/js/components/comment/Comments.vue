@@ -1,5 +1,5 @@
 <template>
-    <div class="col-12 bg-white">
+    <div class="col-md-8 col-10 bg-light">
 
         <app-add-comment @newComment="addComment($event)" :movieId="movieId" ></app-add-comment>
         <div class="rounded " v-for="(comment,index) in comments.data" :key="comment.id" >
@@ -10,6 +10,7 @@
                 >
             </app-single-comment>
         </div>
+        <p v-if="comments.data.length === 0" >Be the first who comment !!!</p>
         <div v-if="comments.next_page_url" class="text-primary text-center" >
             <a href="" @click.prevent="fetchComments" >See more comments</a>
         </div>

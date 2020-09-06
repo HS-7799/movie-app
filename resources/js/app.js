@@ -30,19 +30,24 @@ Vue.prototype.$auth = new Auth(window.auth)
 Vue.component('app-dashboard', require('./components/dashboard/Dashboard.vue').default);
 Vue.component('app-vote', require('./components/Vote.vue').default);
 Vue.component('app-comments', require('./components/comment/Comments.vue').default);
+Vue.component('app-add-to-favourite', require('./components/AddToFavourite.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+import Avatar from 'vue-avatar'
 import router from './router/router.js'
 import store from './store/store.js'
 import vuetify from './vuetify/index.js'
 import VueProgressBar from 'vue-progressbar'
-
 import SlidingPagination from 'vue-sliding-pagination'
+import VueSweetalert2 from 'vue-sweetalert2';
+import vueNumeralFilterInstaller from 'vue-numeral-filter';
+ 
+Vue.component('SlidingPagination',SlidingPagination);
+Vue.component('Avatar',Avatar);
 
 Vue.use(VueProgressBar, {
   color: '#007bff',
@@ -50,9 +55,8 @@ Vue.use(VueProgressBar, {
   height: '3px'
 })
 
-Vue.component('SlidingPagination',SlidingPagination);
 
-import VueSweetalert2 from 'vue-sweetalert2';
+Vue.use(vueNumeralFilterInstaller, { locale: 'en-gb' });
 Vue.use(VueSweetalert2);
 
 const app = new Vue({

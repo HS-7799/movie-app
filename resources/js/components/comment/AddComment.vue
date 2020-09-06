@@ -10,7 +10,10 @@
                     :class="{'is-invalid' : errors.body}"
                     v-model="form.body"
                     :placeholder="commentId ? 'Add reply' : 'Add comment'" >
-            <button class="btn btn-primary mt-1" :class="{'disabled' : !form.body}" >Add</button>
+            <button class="btn" :class="{'disabled' : (!form.body) || waitForResponse}" >
+                Add
+                <span v-if="waitForResponse" class="spinner-border spinner-border-sm"></span>
+            </button>
         </form>
     </div>
 </template>
@@ -36,13 +39,18 @@ export default {
                 comment_id : this.commentId
             },
             errors : {},
+            waitForResponse : false
 
         }
     },
     methods : {
         submitForm()
         {
-            this.addComment();
+
+            if(!this.waitForResponse)
+            {
+                this.addComment();
+            }
         },
         spliceComment(index)
         {
@@ -77,13 +85,16 @@ export default {
         },
         addComment()
         {
+            this.waitForResponse = true;
             if (this.form.body) {
                 axios.post(`/comments/${this.movieId}`,this.form)
                 .then((res) => {
+                    this.waitForResponse = false;
                     this.$emit('newComment',res.data)
                     this.form.body = null
                     this.errors = {}
                 }).catch((err) => {
+                    this.waitForResponse = false;
                     this.handle(err)
                 });
             }
@@ -94,4 +105,16 @@ export default {
 
 </script>
 
-<style></style>
+<style scoped >
+input
+{
+    border-radius : 0;
+    margin : 2px
+}
+button
+{
+    margin:2px;
+    background-color : #4bb8ce;
+    color : white
+}
+</style>

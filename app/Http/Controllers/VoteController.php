@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Comment;
-use Illuminate\Http\Request;
-
 use App\Movie;
+use App\Comment;
+
+use App\Events\VoteEvent;
+use Illuminate\Http\Request;
 
 class VoteController extends Controller
 {
@@ -19,11 +20,14 @@ class VoteController extends Controller
         }
         $vote = $entity->votes()->where('user_id',auth()->id())->first();
 
+        broadcast(new VoteEvent($entityId))->toOthers();
+
         if($vote)
         {
             return $vote->update([
                 'type' => request('type')
             ]);
+
         }
 
         return $entity->votes()->create([

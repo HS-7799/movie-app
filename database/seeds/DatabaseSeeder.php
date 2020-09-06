@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
 
         $user = Factory(App\User::class)->create([
             'name' => 'hamza elharsi',
-            'email' => 'hamza@example.com'
+            'email' => 'hamzaelharsi123@gmail.com'
         ]);
 
         $admin = Role::whereName('admin')->firstOrFail();
@@ -50,7 +50,5 @@ class DatabaseSeeder extends Seeder
         Ability::all()->each(function($ability) use($admin){
             $admin->allowTo($ability);
         });
-
-        factory(App\Category::class,5)->create();
     }
 }

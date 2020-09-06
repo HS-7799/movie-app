@@ -52,4 +52,9 @@ class User extends Authenticatable
         $this->roles()->sync($role,false);
     }
 
+    public function movies()
+    {
+        return $this->belongsToMany(Movie::class)->withTimestamps();
+    }
+
 }

@@ -70,7 +70,10 @@ class MovieController extends Controller
             return $movie;
         }
 
-        return view('movies.show',compact('movie'));
+        return view('movies.show',[
+            'movie' => $movie,
+            'isFavourite' => auth()->user() ? auth()->user()->movies->contains($movie) : false
+        ]);
     }
 
 
@@ -159,4 +162,16 @@ class MovieController extends Controller
 
         return $url;
     }
+
+    public function addFavourite(Movie $movie)
+    {
+        return auth()->user()->movies()->toggle($movie);
+    }
+    public function showFavourites()
+    {
+        return view('movies.favourites',[
+            'movies' => auth()->user()->movies()->paginate(20)
+        ]);
+    }
+    
 }

@@ -46,8 +46,16 @@ Route::middleware('auth')->group(function(){
     Route::delete('/movies/{entityId}/vote','VoteController@destroy');
 
     Route::post('/movies/{movie}/cast/{actor}','ActorMovieController@store');
+    Route::post('/movies/{movie}/favourite','MovieController@addFavourite');
+
+    Route::get('/favourites','MovieController@showFavourites');
+
+    Route::put('/profiles/{user}','ProfileController@update')->name('profiles.update');
+    Route::put('/profiles/{user}/changePassword','ProfileController@updatePassword')->name('profiles.updatePassword');
+    Route::get('/profiles/{user}/edit','ProfileController@edit')->name('profiles.edit');
 
 });
+
 
 
 // no authentication

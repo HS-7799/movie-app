@@ -5,7 +5,6 @@ Vue.use(VueRouter)
 
 import Home from '../components/dashboard/Home.vue'
 import Category from '../components/dashboard/Category.vue'
-import Profile from '../components/dashboard/Profile.vue'
 import NotFound from '../components/dashboard/NotFound.vue'
 import Roles from '../components/dashboard/role/Roles.vue'
 import AddRole from '../components/dashboard/role/AddRole.vue'
@@ -24,7 +23,6 @@ import EditActor from '../components/dashboard/actor/EditActor.vue'
 const routes = [
     { path: '/dashboard/home', component: Home ,name : 'Dashboard' },
     { path: '/dashboard/categories', component: Category, name : 'Categories' },
-    { path: '/dashboard/profile', component: Profile, name : 'Profile' },
     { path: '/dashboard/roles', component: Roles, name : 'Roles' },
     {path : '/dashboard/roles/create', name : 'Create role', component : AddRole},
     {path : '/dashboard/roles/:id/edit', name : 'Edit role', component : EditRole},

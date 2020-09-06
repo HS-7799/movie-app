@@ -2,11 +2,11 @@
     <div>
         <span class="vote mx-1" @click="vote('up')" >
             <i class="fas fa-thumbs-up icon" :class="{'active' : isLiked}" ></i>
-            <span class="voteCount" > {{ likeCount }} </span>
+            <span class="voteCount" > {{ likeCount | numeral('0.a') }} </span>
         </span>
         <span class="vote mx-1" @click="vote('down')" >
             <i class="fas fa-thumbs-down icon" :class="{'active' : isUnLiked}" ></i>
-            <span class="voteCount" > {{ unlikeCount }} </span>
+            <span class="voteCount" > {{ unlikeCount | numeral('0.a') }} </span>
         </span>
     </div>
 </template>
@@ -131,13 +131,22 @@ export default {
             }
         }
     },
+    // mounted()
+    // {
+    //         Echo.channel('VoteEntity')
+    //         .listen('VoteEvent', (e) => {
+    //             console.log(e);
+    //         });
+    // },
     created()
     {
+
         this.votes.forEach(vote => {
 
             if(vote.type === 'up')
             {
                 this.likeCount++;
+
 
                 if(vote.user_id === this.$auth.id())
                 {
@@ -153,6 +162,8 @@ export default {
         });
 
 
+
+
     }
 
 }
@@ -164,7 +175,7 @@ export default {
 .icon
 {
     font-size : 20px;
-    color : white
+    color : gray
 }
 .vote
 {
@@ -174,7 +185,7 @@ export default {
 .voteCount
 {
     font-size : 16px;
-    color : white;
+    color : gray;
     padding : 2px
 }
 

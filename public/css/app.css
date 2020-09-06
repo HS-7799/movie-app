@@ -31275,7 +31275,6 @@ header nav {
 }
 
 header nav li {
-  width: 80px;
   text-align: center;
 }
 
@@ -31322,6 +31321,13 @@ header .row {
   bottom: 0;
 }
 
+#search-input-button {
+  position: absolute;
+  right: 70px;
+  top: 0;
+  bottom: 0;
+}
+
 #search-input-icon i {
   color: white;
   padding-top: 10px;
@@ -31355,6 +31361,7 @@ header .row {
 
 #section1 {
   padding-top: 10px;
+  padding-bottom: 40px;
   background-image: linear-gradient(to top, #1d2b36, #2f4455, #2d6775);
   min-height: 100vh;
 }
@@ -31417,38 +31424,6 @@ header .row {
 
 .hs-pagination .page-link {
   color: #2f4455;
-}
-
-@media only screen and (max-width: 430px) {
-  #search-input {
-    width: 270px;
-  }
-
-  #search-input-icon {
-    width: 40px;
-  }
-
-  #logo h1 {
-    font-size: 40px;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  #logo h1 {
-    font-size: 30px;
-  }
-}
-
-@media only screen and (max-width: 280px) {
-  #logo h1 {
-    font-size: 26px;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  .movie-title {
-    font-size: 16px;
-  }
 }
 
 .movie-details {
@@ -31615,6 +31590,55 @@ header .row {
 
 .form form input:focus {
   outline: none;
+}
+
+footer {
+  padding: 10px;
+  background-color: #3f95aa;
+  color: white;
+}
+
+@media only screen and (max-width: 430px) {
+  #search-input {
+    width: 270px;
+  }
+
+  #search-input-icon {
+    width: 40px;
+  }
+
+  #logo h1 {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  #logo h1 {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 280px) {
+  #logo h1 {
+    font-size: 26px;
+  }
+
+  .movie-watch-links a {
+    padding: 10px 15px;
+    margin: 2px;
+    min-width: 116px;
+  }
+
+  .movie-details-info .title {
+    font-size: 20px;
+    color: red;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .movie-title {
+    font-size: 16px;
+  }
 }
 
 /* Magnific Popup CSS */
