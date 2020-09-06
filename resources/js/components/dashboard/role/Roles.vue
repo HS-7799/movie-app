@@ -116,7 +116,6 @@ export default {
                  this.successMessage('Role has been deleted');
                  this.roles.splice(index,1);
             }).catch((err) => {
-                console.log(err)
                 this.handle(err)
             });
         },
@@ -139,7 +138,6 @@ export default {
             .then((res) => {
                 this.roles = res.data
             }).catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             });
             axios.get('/abilities')

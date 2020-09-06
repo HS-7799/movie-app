@@ -76,7 +76,6 @@ export default {
                     }
                     this.$router.push('/dashboard/roles');
                 }).catch((err) => {
-                    console.log(err.response.data)
                     this.handle(err)
                 });
 
@@ -94,14 +93,12 @@ export default {
                     return ability.id
                 })
             }).catch((err) => {
-                console.log(err)
                 this.handle(err)
             });
             axios.get('/abilities')
                 .then((res) => {
                     this.abilities = res.data.data
                 }).catch((err) => {
-                    console.log(err)
                     this.handle(err)
             });
         }

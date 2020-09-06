@@ -131,9 +131,7 @@ export default {
                     this.current_page -= 1
                 }
                 this.loadActors(this.current_page)
-            }).catch((err) => {
-                console.log(err.response);
-            });
+            })
         },
         successMessage(msg)
         {

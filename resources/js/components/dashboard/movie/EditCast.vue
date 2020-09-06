@@ -119,7 +119,6 @@ export default {
         {
             axios.get(`/movies/${this.$route.params.id}`)
             .then((res) => {
-                // console.log()
                 this.selectedActors = res.data.actors.map((actor) => {
                     this.names[actor.id] = actor.pivot.role
                     return {

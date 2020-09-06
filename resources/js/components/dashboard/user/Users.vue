@@ -136,7 +136,6 @@ export default {
                  }
                  this.loadPage(this.current_page)
             }).catch((err) => {
-                console.log(err)
                 this.handle(err)
             });
         },
@@ -158,7 +157,6 @@ export default {
                     this.total = res.data.meta.last_page
                     this.users = res.data.data
                 }).catch((err) => {
-                    console.log(err.response.data)
                     this.handle(err)
                 });
         },

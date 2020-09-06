@@ -62,11 +62,9 @@ export default {
                 name : this.abilityName
             })
             .then((res) => {
-                console.log(res)
                 this.abilityName = ''
                 this.abilities.push(res.data)
             }).catch((err) => {
-                console.log(err)
                 this.handle(err)
             });
         },
@@ -93,10 +91,8 @@ export default {
         {
             axios.post('/roles',this.form)
             .then((res) => {
-                console.log(res.data)
                 this.$router.push('/dashboard/roles')
             }).catch((err) => {
-                console.log(err.response.data)
                 this.handle(err)
             });
         }
@@ -109,7 +105,6 @@ export default {
             .then((res) => {
                 this.abilities = res.data.data
             }).catch((err) => {
-                console.log(err)
                 this.handle(err)
             });
         }

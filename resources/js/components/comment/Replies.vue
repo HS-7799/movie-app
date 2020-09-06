@@ -63,9 +63,7 @@ export default {
                         ...res.data.data
                     ]
                 }
-            }).catch((err) => {
-                console.log(err.response);
-            });
+            })
         },
         addReply(reply)
         {

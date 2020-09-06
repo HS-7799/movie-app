@@ -152,7 +152,6 @@ export default {
                  }
                  this.loadPage(this.current_page)
             }).catch((err) => {
-                console.log(err)
                 this.handle(err)
             });
         },
@@ -174,7 +173,6 @@ export default {
                     this.total = res.data.last_page
                     this.movies = res.data.data
                 }).catch((err) => {
-                    console.log(err.response.data)
                     this.handle(err)
                 });
         },

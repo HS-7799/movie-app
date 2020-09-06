@@ -96,7 +96,7 @@ export default {
                 this.photo = res.data.photo
                 this.form.name = res.data.name
                 this.form.biographie = res.data.biographie
-                console.log(this.form);
+
             }).catch((err) => {
                 this.handle(err)
             });
