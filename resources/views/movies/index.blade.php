@@ -8,7 +8,7 @@
             <div class="col-lg-2 col-md-3 col-sm-4 col-7 m-1">
                 <div class="movie">
                     <div class="movie-poster">
-                        <img src="{{ $movie->getPosterIndex() }}" width="100%" alt="">
+                        <img src="{{ $movie->getPosterIndex() }}" width="100%" alt="{{ $movie->title }}'s poster'">
                     </div>
                     <div class="movie-icon">
                         <a href="{{ route('movies.show',$movie->id) }}" >

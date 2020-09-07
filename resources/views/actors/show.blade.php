@@ -4,7 +4,7 @@
 <div class="container-fluid" >
     <div class="row justify-content-center">
         <div class="col-md-3 col-sm-4 col-7">
-            <img src="{{ $actor->getFirstMediaUrl() }}"  class="rounded img-fluid"   alt="">
+            <img src="{{ $actor->getFirstMediaUrl() }}"  class="rounded img-fluid"   alt="{{ $actor->name }}'s photo'">
         </div>
         <div class="col-lg-7 col-md-8" style="color: white">
             <h1>

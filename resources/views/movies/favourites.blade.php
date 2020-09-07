@@ -13,8 +13,8 @@
                 <div class="movie">
                     <a href="{{ route('movies.show',$movie->id) }}" >
                         <div class="movie-poster">
-                            <img src="{{ $movie->getPosterIndex() }}" width="100%" alt="">
-                        </div>  
+                            <img src="{{ $movie->getPosterIndex() }}" width="100%" alt="{{ $movie->title }}'s poster'">
+                        </div>
                         <h3 class="movie-title" >{{ $movie->title }}</h3>
                     </a>
                 </div>
@@ -28,7 +28,7 @@
     <div class="row justify-content-center">
         {{ $movies->links() }}
     </div>
-    
+
 
 </div>
 @endsection

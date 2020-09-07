@@ -14,7 +14,7 @@
             <div class="movie-details" >
                 <div class="row justify-content-center">
                     <div class="col-lg-4 col-md-7 col-sm-10  col-12">
-                        <img src="{{ $movie->getPosterShow()}}" class="rounded" width="100%" alt="">
+                        <img src="{{ $movie->getPosterShow()}}" class="rounded" width="100%" alt="{{ $movie->title }}'s poster'">
                     </div>
                     <div class="col-lg-8 col-12 pt-5" class="movie-details-info">
                         <h2 class="title" >{{ $movie->title }}</h2>
@@ -38,10 +38,10 @@
                         <p>
                             <span class="info-title">
                                 <i class='fas fa-star' style='font-size:19px;color: #FFD700;'></i>
-                                Rating: 
+                                Rating:
                             </span>
                             {{ $movie->rating }}
-                            
+
                         </p>
                         <p>
                             <span class="info-title">
@@ -75,7 +75,7 @@
                         @foreach ($movie->actors as $actor)
                             <div class="col-lg-3 col-md-4 col-sm-6 col-10 text-center my-2">
                                 <a href="{{ route('actors.show',$actor->slug) }}" class="actor-link" >
-                                    <img src="{{ $actor->photo }}" width="100%" alt="" class="rounded mb-2">
+                                    <img src="{{ $actor->photo }}" width="100%" alt="{{ $actor->name }}'s poster'" class="rounded mb-2">
                                     <h5>{{ $actor->name }}</h5>
                                     <p class="text">
                                         <span class="actor-role" >{{ $actor->pivot->role }}</span>
@@ -95,7 +95,7 @@
         <div class="row justify-content-center">
             <div class="videocontent" >
                 {{-- component --}}
-                <app-add-to-favourite 
+                <app-add-to-favourite
                 movie-id="{{ $movie->id }}"
                 is-favorite="{{ $isFavourite }}"
                  ></app-add-to-favourite>

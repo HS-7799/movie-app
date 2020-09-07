@@ -16,7 +16,7 @@
                     @foreach ($moviesResults as $movie)
                         <a href="{{ Route('movies.show',$movie->id) }}">
                             <li class="list-group-item">
-                                <img src="{{ $movie->getPosterLivewire() }}" width="45px"  alt="">
+                                <img src="{{ $movie->getPosterLivewire() }}" width="45px"  alt="{{ $movie->title }}'s poster'">
                                 <span class="movie-title">{{ $movie->title }}</span>
                             </li>
 
