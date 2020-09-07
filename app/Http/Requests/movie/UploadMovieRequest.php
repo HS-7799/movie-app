@@ -25,8 +25,6 @@ class UploadMovieRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            // 'video' => 'required|file|mimetypes:video/mp4,video/mpeg,video/x-matroska'
-
             'video' => 'required|file|mimetypes:video/x-ms-asf,video/x-flv,video/mp4,application/x-mpegURL,video/MP2T,video/3gpp,video/quicktime,video/x-msvideo,video/x-ms-wmv,video/avi'
 
         ];

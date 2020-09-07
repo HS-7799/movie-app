@@ -19,13 +19,11 @@ class Actor extends Model implements HasMedia
 
     public function registerMediaConversions(Media $media = null): void
     {
-        // $this->addMediaConversion('thumb')
-        //       ->width(200)
-        //       ->height(300)
-        //       ->nonQueued();
         $this->addMediaConversion('thumb')
               ->width(200)
-              ->height(300);
+              ->height(300)
+              ->nonQueued();
+
     }
 
     public function getPhoto()
