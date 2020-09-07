@@ -11,7 +11,7 @@
                 {{ $actor->name }}
             </h1>
             <h3 ><span id="bar"></span> Biographie</h3>
-            <p class="p-3" style="text-align: justify;font-size:20px;box-shadow:1px 1px 5px lightgray">
+            <p class="p-3" style="text-align: justify;font-size:20px;box-shadow:1px 1px 5px lightgray;overflow:auto">
                 {{ $actor->biographie }}
             </p>
 
